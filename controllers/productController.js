@@ -17,6 +17,7 @@ exports.getProductById = (req, res) => {
 
 // POST /products
 exports.addProduct = (req, res) => {
-    const result = productService.addProduct();
-    res.status(201).send(result);
+    // const result = productService.addProduct();
+    const data = req.body; // Assuming product data is sent in the request body
+    res.status(201).json({ value: data.productName });
 };
