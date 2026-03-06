@@ -15,6 +15,10 @@ app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 app.use('/cart', cartRoutes);
 
+// Centralized error handler (should be after all routes)
+const errorHandler = require('./middleware/errorHandler');
+app.use(errorHandler);
+
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
 });
